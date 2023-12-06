@@ -5,8 +5,8 @@
     android:id="@+id/DriveMode"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#858383"
-    android:backgroundTint="#6C6868"
+    android:background="#3E3E3E"
+    android:backgroundTint="#434343"
     tools:context=".MainActivity">
 
     <Button
@@ -32,6 +32,84 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/DriveSwitch" />
+
+    <Button
+        android:id="@+id/restartThread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:alpha="0"
+        android:text="Restart Server"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/Data"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <ImageView
+        android:id="@+id/li"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toTopOf="@+id/doorOpen"
+        app:layout_constraintEnd_toStartOf="@+id/DriveSwitch"
+        app:layout_constraintStart_toEndOf="@+id/breakFail"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/lefti" />
+
+    <ImageView
+        android:id="@+id/doorOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/li"
+        app:layout_constraintStart_toStartOf="@+id/li"
+        app:layout_constraintTop_toBottomOf="@+id/li"
+        app:srcCompat="@drawable/dooropen" />
+
+    <ImageView
+        android:id="@+id/breakFail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="@+id/li"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/li"
+        app:srcCompat="@drawable/breakfail" />
+
+    <ImageView
+        android:id="@+id/ri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toTopOf="@+id/parkBreak"
+        app:layout_constraintEnd_toStartOf="@+id/seatBelt"
+        app:layout_constraintStart_toEndOf="@+id/whichScreen"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:srcCompat="@drawable/righti" />
+
+    <ImageView
+        android:id="@+id/parkBreak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ri"
+        app:layout_constraintStart_toStartOf="@+id/ri"
+        app:layout_constraintTop_toBottomOf="@+id/ri"
+        app:srcCompat="@drawable/parkbrake" />
+
+    <ImageView
+        android:id="@+id/seatBelt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="@+id/ri"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ri"
+        app:srcCompat="@drawable/seatbelt" />
 
     <SeekBar
         android:id="@+id/FuelSeek"
@@ -75,46 +153,6 @@
         app:layout_constraintTop_toTopOf="@+id/textView10" />
 
     <Switch
-        android:id="@+id/Li"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
-
-    <Switch
-        android:id="@+id/Ri"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch"
-        app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/textView7" />
-
-    <Switch
-        android:id="@+id/seatBelt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <Switch
-        android:id="@+id/park"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Switch"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
-
-    <Switch
         android:id="@+id/Data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,12 +170,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="100dp"
         android:text="180"
         android:textColor="@color/white"
         android:textSize="96sp"
-        app:layout_constraintEnd_toStartOf="@+id/Rpm"
-        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -145,13 +181,12 @@
         android:id="@+id/Rpm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:text="8"
         android:textColor="@color/white"
         android:textSize="96sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Speed"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -163,36 +198,10 @@
         android:text="Fuel "
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintBottom_toTopOf="@+id/li"
         app:layout_constraintEnd_toStartOf="@+id/FuelSeek"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="Left Indicator"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toStartOf="@+id/Li"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Seat Belt"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/seatBelt"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView6"
@@ -203,34 +212,10 @@
         android:text="Temp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintBottom_toTopOf="@+id/ri"
         app:layout_constraintEnd_toStartOf="@+id/tempSeek"
         app:layout_constraintStart_toEndOf="@+id/FuelSeek"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Right Indicator"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toStartOf="@+id/Ri"
-        app:layout_constraintStart_toEndOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/tempSeek" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Park / Hand break"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/park"
-        app:layout_constraintStart_toEndOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView9"
@@ -266,5 +251,49 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <ImageView
+        android:id="@+id/battery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="@+id/doorOpen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/doorOpen"
+        app:srcCompat="@drawable/battery_alternator_warning" />
+
+    <ImageView
+        android:id="@+id/oilcheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toBottomOf="@+id/parkBreak"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/parkBreak"
+        app:srcCompat="@drawable/signal_oil_check" />
+
+    <ImageView
+        android:id="@+id/highbeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toTopOf="@+id/DriveSwitch"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/FuelSeek"
+        app:srcCompat="@drawable/high_beam" />
+
+    <ImageView
+        android:id="@+id/lowbeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:alpha="0.2"
+        app:layout_constraintBottom_toTopOf="@+id/whichScreen"
+        app:layout_constraintStart_toEndOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/tempSeek"
+        app:srcCompat="@drawable/low_beam_headlights" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

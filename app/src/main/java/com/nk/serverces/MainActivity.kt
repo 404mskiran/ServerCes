@@ -21,7 +21,7 @@ import java.io.PrintWriter
 import java.net.Socket
 import kotlin.concurrent.thread
 
-val dataToSend = floatArrayOf(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,0.0f)
+val dataToSend = FloatArray(17){0.0f}
 
 val maxdata = intArrayOf(190, 170, 110, 110, 5, 5, 5, 5, 6, 5000, 11, 12)
 
@@ -189,6 +189,52 @@ class MainActivity : AppCompatActivity() {
                 binding.doorOpen.alpha=1.0f
             }
         }
+        binding.battery.setOnClickListener {
+            if (binding.battery.alpha==1.0f) {
+
+                dataToSend[14]=0.0f
+                binding.battery.alpha=0.2f
+            } else {
+                dataToSend[14]=1.0f
+                binding.battery.alpha=1.0f
+            }
+        }
+
+        binding.oilcheck.setOnClickListener {
+            if (binding.oilcheck.alpha==1.0f) {
+
+                dataToSend[13]=0.0f
+                binding.oilcheck.alpha=0.2f
+            } else {
+                dataToSend[13]=1.0f
+                binding.oilcheck.alpha=1.0f
+            }
+        }
+        binding.highbeam.setOnClickListener {
+
+            if (binding.highbeam.alpha==1.0f) {
+
+                dataToSend[15]=0.0f
+                binding.highbeam.alpha=0.2f
+            } else {
+                dataToSend[15]=2.0f
+                binding.highbeam.alpha=1.0f
+                binding.lowbeam.alpha=0.2f
+            }
+        }
+        binding.lowbeam.setOnClickListener {
+
+            if (binding.lowbeam.alpha==1.0f) {
+
+                dataToSend[15]=0.0f
+                binding.lowbeam.alpha=0.2f
+            } else {
+                dataToSend[15]=1.0f
+                binding.lowbeam.alpha=1.0f
+                binding.highbeam.alpha=0.2f
+            }
+        }
+
 
 
         binding.Data.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -261,7 +307,7 @@ class MainActivity : AppCompatActivity() {
         inputEditText.setText("localhost")
 
         val dialog = AlertDialog.Builder(context)
-            .setTitle("Enter Text")
+            .setTitle("Enter IP address")
             .setView(inputEditText)
             .setPositiveButton("OK") { _, _ ->
 
